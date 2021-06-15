@@ -1,9 +1,20 @@
 $path = Read-Host -Prompt "Path";
+$recursive = Read-Host -Prompt "Recurvise (y/n)";
+while ($recursive -ne "y" -and $recursive -ne "n"){
+    $recursive = Read-Host -Prompt "Recurvise (y/n)";
+}
 
-$allFilesJpg = dir $path *.jpg;
-$allFilesPng = dir $path *.png;
-$allFilesMp4 = dir $path *.mp4;
-$allFilesJpeg = dir $path *.jpeg;
+if ($recursive -eq "y"){
+    $allFilesJpg = dir $path *.jpg -Recurse;
+    $allFilesPng = dir $path *.png -Recurse;
+    $allFilesMp4 = dir $path *.mp4 -Recurse;
+    $allFilesJpeg = dir $path *.jpeg -Recurse;
+} else {
+    $allFilesJpg = dir $path *.jpg;
+    $allFilesPng = dir $path *.png;
+    $allFilesMp4 = dir $path *.mp4;
+    $allFilesJpeg = dir $path *.jpeg;
+}
 
 foreach ($pic in $allFilesJpg) {
 
@@ -15,9 +26,25 @@ foreach ($pic in $allFilesJpg) {
 
     if (!$RepoYearExist){
         mkdir $path"\"$year | Out-Null;
-        Move-Item $pic.PSPath $CompletePath
+        try {
+            Move-Item $pic.PSPath $CompletePath -ErrorAction Stop
+        }
+        catch {
+            $name = (echo $pic | select Name)
+            $CatchName = $name.Name -split '.jpg', 2;
+            $CompletePath = $CompletePath + "\" + $CatchName[0]  + "(Copy2)" + ".jpg";
+            Move-Item $pic.PSPath $CompletePath;
+        }
     } else {
-        Move-Item $pic.PSPath $CompletePath
+        try {
+            Move-Item $pic.PSPath $CompletePath -ErrorAction Stop
+        }
+        catch {
+            $name = (echo $pic | select Name)
+            $CatchName = $name.Name -split '.jpg', 2;
+            $CompletePath = $CompletePath + "\" + $CatchName[0]  + "(Copy2)" + ".jpg";
+            Move-Item $pic.PSPath $CompletePath;
+        }
     }
 }
 
@@ -33,9 +60,25 @@ foreach ($pic in $allFilesJpeg) {
 
     if (!$RepoYearExist){
         mkdir $path"\"$year | Out-Null;
-        Move-Item $pic.PSPath $CompletePath
+        try {
+            Move-Item $pic.PSPath $CompletePath -ErrorAction Stop
+        }
+        catch {
+            $name = (echo $pic | select Name)
+            $CatchName = $name.Name -split '.jpeg', 2;
+            $CompletePath = $CompletePath + "\" + $CatchName[0]  + "(Copy2)" + ".jpeg";
+            Move-Item $pic.PSPath $CompletePath;
+        }
     } else {
-        Move-Item $pic.PSPath $CompletePath
+        try {
+            Move-Item $pic.PSPath $CompletePath -ErrorAction Stop
+        }
+        catch {
+            $name = (echo $pic | select Name)
+            $CatchName = $name.Name -split '.jpeg', 2;
+            $CompletePath = $CompletePath + "\" + $CatchName[0]  + "(Copy2)" + ".jpeg";
+            Move-Item $pic.PSPath $CompletePath;
+        }
     }
 }
 
@@ -51,9 +94,25 @@ foreach ($pic in $allFilesPng) {
 
     if (!$RepoYearExist){
         mkdir $path"\"$year | Out-Null;
-        Move-Item $pic.PSPath $CompletePath
+        try {
+            Move-Item $pic.PSPath $CompletePath -ErrorAction Stop
+        }
+        catch {
+            $name = (echo $pic | select Name)
+            $CatchName = $name.Name -split '.png', 2;
+            $CompletePath = $CompletePath + "\" + $CatchName[0]  + "(Copy2)" + ".png";
+            Move-Item $pic.PSPath $CompletePath;
+        }
     } else {
-        Move-Item $pic.PSPath $CompletePath
+        try {
+            Move-Item $pic.PSPath $CompletePath -ErrorAction Stop
+        }
+        catch {
+            $name = (echo $pic | select Name)
+            $CatchName = $name.Name -split '.png', 2;
+            $CompletePath = $CompletePath + "\" + $CatchName[0]  + "(Copy2)" + ".png";
+            Move-Item $pic.PSPath $CompletePath;
+        }
     }
 }
 
@@ -69,9 +128,25 @@ foreach ($pic in $allFilesMp4) {
 
     if (!$RepoYearExist){
         mkdir $path"\"$year | Out-Null;
-        Move-Item $pic.PSPath $CompletePath
+        try {
+            Move-Item $pic.PSPath $CompletePath -ErrorAction Stop
+        }
+        catch {
+            $name = (echo $pic | select Name)
+            $CatchName = $name.Name -split '.mp4', 2;
+            $CompletePath = $CompletePath + "\" + $CatchName[0]  + "(Copy2)" + ".mp4";
+            Move-Item $pic.PSPath $CompletePath;
+        }
     } else {
-        Move-Item $pic.PSPath $CompletePath
+        try {
+            Move-Item $pic.PSPath $CompletePath -ErrorAction Stop
+        }
+        catch {
+            $name = (echo $pic | select Name)
+            $CatchName = $name.Name -split '.mp4', 2;
+            $CompletePath = $CompletePath + "\" + $CatchName[0]  + "(Copy2)" + ".mp4";
+            Move-Item $pic.PSPath $CompletePath;
+        }
     }
 }
 
