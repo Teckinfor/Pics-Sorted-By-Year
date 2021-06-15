@@ -1,8 +1,10 @@
-﻿$path = Read-Host -Prompt "Path";
+$path = Read-Host -Prompt "Path";
 
 $allFilesJpg = dir $path *.jpg;
 $allFilesPng = dir $path *.png;
 
+
+#Jpeg files
 foreach ($pic in $allFilesJpg) {
 
     $date = (echo $pic | select LastWriteTime);
@@ -17,13 +19,10 @@ foreach ($pic in $allFilesJpg) {
     } else {
         Move-Item $pic.PSPath $CompletePath
     }
-
-    
-
 }
-
 Write-Host "Jpeg - Finished";
 
+#Png Files
 foreach ($pic in $allFilesPng) {
 
     $date = (echo $pic | select LastWriteTime);
@@ -38,8 +37,5 @@ foreach ($pic in $allFilesPng) {
     } else {
         Move-Item $pic.PSPath $CompletePath
     }
-
-    
 }
-
 Write-Host "Png - Finished";
