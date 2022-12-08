@@ -22,18 +22,18 @@ foreach ($pic in $allFilesJpg) {
     $Month = $date.LastWriteTime.Month;
 
     switch ($Month) {
-        1 { $Month = "Janvier" }
-        2 { $Month = "Fevrier" }
-        3 { $Month = "Mars" }
-        4 { $Month = "Avril" }
-        5 { $Month = "Mai" }
-        6 { $Month = "Juin" }
-        7 { $Month = "Juillet" }
-        8 { $Month = "Aout" }
-        9 { $Month = "Septembre" }
-        10 { $Month = "Octobre" }
-        11 { $Month = "Novembre" }
-        12 { $Month = "Decembre" }
+        1 { $Month = "1 - Janvier" }
+        2 { $Month = "2 - Fevrier" }
+        3 { $Month = "3 - Mars" }
+        4 { $Month = "4 - Avril" }
+        5 { $Month = "5 - Mai" }
+        6 { $Month = "6 - Juin" }
+        7 { $Month = "7 - Juillet" }
+        8 { $Month = "8 - Aout" }
+        9 { $Month = "9 - Septembre" }
+        10 { $Month = "10 - Octobre" }
+        11 { $Month = "11 - Novembre" }
+        12 { $Month = "12 - Decembre" }
         Default {}
     }
 
