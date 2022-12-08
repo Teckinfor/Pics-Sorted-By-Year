@@ -23,7 +23,7 @@ foreach ($pic in $allFilesJpg) {
 
     switch ($Month) {
         1 { $Month = "Janvier" }
-        2 { $Month = "Février" }
+        2 { $Month = "Fevrier" }
         3 { $Month = "Mars" }
         4 { $Month = "Avril" }
         5 { $Month = "Mai" }
