@@ -70,8 +70,24 @@ foreach ($pic in $allFilesJpeg) {
 
     $date = (Write-Output $pic | Select-Object LastWriteTime);
     $Month = $date.LastWriteTime.Month;
-    $CompletePath = $path + "\" + $Month
 
+    switch ($Month) {
+        1 { $Month = "1 - Janvier" }
+        2 { $Month = "2 - Fevrier" }
+        3 { $Month = "3 - Mars" }
+        4 { $Month = "4 - Avril" }
+        5 { $Month = "5 - Mai" }
+        6 { $Month = "6 - Juin" }
+        7 { $Month = "7 - Juillet" }
+        8 { $Month = "8 - Aout" }
+        9 { $Month = "9 - Septembre" }
+        10 { $Month = "10 - Octobre" }
+        11 { $Month = "11 - Novembre" }
+        12 { $Month = "12 - Decembre" }
+        Default {}
+    }
+
+    $CompletePath = $path + "\" + $Month;
     $RepoMonthExist = Test-Path $path"\"$Month;
 
     if (!$RepoMonthExist){
@@ -104,8 +120,24 @@ foreach ($pic in $allFilesPng) {
 
     $date = (Write-Output $pic | Select-Object LastWriteTime);
     $Month = $date.LastWriteTime.Month;
-    $CompletePath = $path + "\" + $Month
 
+    switch ($Month) {
+        1 { $Month = "1 - Janvier" }
+        2 { $Month = "2 - Fevrier" }
+        3 { $Month = "3 - Mars" }
+        4 { $Month = "4 - Avril" }
+        5 { $Month = "5 - Mai" }
+        6 { $Month = "6 - Juin" }
+        7 { $Month = "7 - Juillet" }
+        8 { $Month = "8 - Aout" }
+        9 { $Month = "9 - Septembre" }
+        10 { $Month = "10 - Octobre" }
+        11 { $Month = "11 - Novembre" }
+        12 { $Month = "12 - Decembre" }
+        Default {}
+    }
+
+    $CompletePath = $path + "\" + $Month;
     $RepoMonthExist = Test-Path $path"\"$Month;
 
     if (!$RepoMonthExist){
@@ -138,8 +170,24 @@ foreach ($pic in $allFilesMp4) {
 
     $date = (Write-Output $pic | Select-Object LastWriteTime);
     $Month = $date.LastWriteTime.Month;
-    $CompletePath = $path + "\" + $Month
 
+    switch ($Month) {
+        1 { $Month = "1 - Janvier" }
+        2 { $Month = "2 - Fevrier" }
+        3 { $Month = "3 - Mars" }
+        4 { $Month = "4 - Avril" }
+        5 { $Month = "5 - Mai" }
+        6 { $Month = "6 - Juin" }
+        7 { $Month = "7 - Juillet" }
+        8 { $Month = "8 - Aout" }
+        9 { $Month = "9 - Septembre" }
+        10 { $Month = "10 - Octobre" }
+        11 { $Month = "11 - Novembre" }
+        12 { $Month = "12 - Decembre" }
+        Default {}
+    }
+
+    $CompletePath = $path + "\" + $Month;
     $RepoMonthExist = Test-Path $path"\"$Month;
 
     if (!$RepoMonthExist){
